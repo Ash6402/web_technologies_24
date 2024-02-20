@@ -18,6 +18,22 @@ img{
     max-width: 100%;
 }
 
+.information div{
+    display: grid;
+    place-items: center;
+}
+
+.information p{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.icon img{
+    width: 30px;
+    aspect-ratio: 1/1;
+}
+
 /* ============================= UTILITY CLASSES ========================== */
 
 .grid{
