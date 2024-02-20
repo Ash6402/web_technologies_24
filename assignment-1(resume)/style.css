@@ -154,11 +154,6 @@ img{
         margin: auto;
     }
 
-    .head{
-        position: sticky;
-        top: 0;
-    }
-
     .head, .information{
         padding-inline: 1rem;
     }
