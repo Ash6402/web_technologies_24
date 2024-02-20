@@ -10,7 +10,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Poppins", Arial, Helvetica, sans-serif;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 
 img{
@@ -48,10 +48,23 @@ img{
     gap: 0.4rem;
 }
 
+.gap-m{
+    gap: 0.8rem;
+}
+
 .text-center{
     text-align: center;
 }
 
 .padding-m{
     padding: var(--padding-m);
+}
+
+.wrap{
+    flex-wrap: wrap;
+}
+
+.flex-center{
+    justify-content: center;
+    align-items: center;
 }
