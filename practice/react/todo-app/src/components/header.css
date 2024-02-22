@@ -1,0 +1,25 @@
+.header{
+    background: url(../assets/images/bg-mobile-dark.jpg) no-repeat;
+    background-size: cover;
+    padding-block: 4rem;
+}
+
+.light .header{
+    background-image: url(../assets/images/bg-mobile-light.jpg);
+}
+
+.main-text{
+    font-size: 200%;
+    font-weight: var(--bold);
+    color: var(--l-very-light-grayish-blue);
+}
+
+@media screen and (min-width: 700px) {
+    .header{
+        background: url(../assets/images/bg-desktop-dark.jpg) no-repeat;
+    }
+
+    .light .header{
+        background-image: url(../assets/images/bg-desktop-light.jpg);
+    }
+}

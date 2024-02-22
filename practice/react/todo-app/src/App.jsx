@@ -1,9 +1,10 @@
-import { useState } from 'react'
 import './App.css'
+import AppPage from './pages/AppPage'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  return (
+    <AppPage />
+  )
 }
 
 export default App
