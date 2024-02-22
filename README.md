@@ -1,2 +1,2 @@
-Initializing Repository
+# Web Technologies 2024
 
