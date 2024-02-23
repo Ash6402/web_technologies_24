@@ -34,9 +34,22 @@ html{
   font-size: var(--font-size);
 }
 
+body{
+  height: 100vh;
+  background: url(./assets/images/bg-desktop-dark.jpg) no-repeat;
+  background-size: 100% 40%;
+  background-color: var(--d-very-dark-blue);
+}
+
+.light{
+  background-color: var(--l-very-light-gray);
+  background-image: url(./assets/images/bg-desktop-light.jpg);
+}
+
 button{
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 
 /* ======================================== UTILITIES =================================== */
