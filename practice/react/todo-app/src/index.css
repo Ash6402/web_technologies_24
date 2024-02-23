@@ -2,7 +2,7 @@
 
 :root{
   --primary-background: hsl(220, 98%, 61%);
-  --check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  --check-background: linear-gradient(to right, #57ddff, #c058f3);
 
   --l-very-light-gray: hsl(0, 0%, 90%);
   --l-very-light-grayish-blue: hsl(236, 33%, 92%);
@@ -21,6 +21,12 @@
 
   --bold: 700;
   --normal: 400;
+
+  --border-radius: 4px;
+}
+
+#root{
+  height: inherit;
 }
 
 *, *::before, *::after{
@@ -36,20 +42,60 @@ html{
 
 body{
   height: 100vh;
-  background: url(./assets/images/bg-desktop-dark.jpg) no-repeat;
-  background-size: 100% 40%;
   background-color: var(--d-very-dark-blue);
 }
 
-.light{
+.background-image{
+  z-index: -1;
+  position: absolute;
+  background: url(./assets/images/bg-mobile-dark.jpg) no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 35vh;
+}
+
+.light {
   background-color: var(--l-very-light-gray);
-  background-image: url(./assets/images/bg-desktop-light.jpg);
+}
+  
+.light .background-image{
+  background-image: url(./assets/images/bg-mobile-light.jpg);
 }
 
 button{
   background: transparent;
   border: none;
   cursor: pointer;
+}
+
+input{
+  border: none;
+  font: inherit;
+  color: inherit;
+}
+
+.wrapper{
+  width: 100%;
+  border-radius: var(--border-radius);
+  background-color: var(--d-very-dark-desaturated-blue);
+  padding-inline: 0.8rem;
+  gap: 1rem;
+  color: var(--d-light-grayish-blue);
+}
+
+.light .wrapper{
+  background-color: var(--l-very-light-gray);
+  color: var(--l-very-dark-grayish-blue);
+}
+
+@media  screen and (min-width: 700px) {
+  .background-image{
+    background-image: url(./assets/images/bg-desktop-dark.jpg);
+  }
+
+  .light .background-image{
+    background-image: url(./assets/images/bg-desktop-light.jpg);
+  }
 }
 
 /* ======================================== UTILITIES =================================== */
@@ -62,6 +108,10 @@ button{
 
 .flex{
   display: flex;
+}
+
+.align-center{
+  align-items: center;
 }
 
 .space-between{

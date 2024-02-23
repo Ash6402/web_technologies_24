@@ -12,7 +12,7 @@ export default function Header(){
 
     return (
         <div className='header'>
-            <div className='container flex space-between'>
+            <div className='flex space-between'>
                 <p className="main-text">TODO</p>
                 <button onClick={toggleMode}>
                     <img src={dark ? iconLight : iconDark} alt="theme toggle icon" />
