@@ -1,7 +1,5 @@
 .wrapper .input{
     background: transparent;
-    padding-inline: 0.5rem;
-    padding-block: 0.8rem;
     flex: 1;
     font-size: 120%;
 }

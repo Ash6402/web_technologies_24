@@ -1,10 +1,10 @@
 import './CheckBox.css';
 
-export default function Checkbox({disabled}){
+export default function Checkbox({disabled = false, set}){
     return (
         <>
             <div class="checkbox-container">
-                <input type="checkbox" disabled={disabled} />
+                <input onChange={set} type="checkbox" disabled={disabled} />
                 <span className="checkbox"></span>
             </div> 
         </>

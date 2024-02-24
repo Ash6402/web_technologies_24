@@ -45,6 +45,10 @@ body{
   background-color: var(--d-very-dark-blue);
 }
 
+ul{
+  list-style-type: none;
+}
+
 .background-image{
   z-index: -1;
   position: absolute;
@@ -55,7 +59,7 @@ body{
 }
 
 .light {
-  background-color: var(--l-very-light-gray);
+  background-color: var(--l-light-grayish-blue);
 }
   
 .light .background-image{
@@ -78,13 +82,12 @@ input{
   width: 100%;
   border-radius: var(--border-radius);
   background-color: var(--d-very-dark-desaturated-blue);
-  padding-inline: 0.8rem;
   gap: 1rem;
   color: var(--d-light-grayish-blue);
 }
 
 .light .wrapper{
-  background-color: var(--l-very-light-gray);
+  background-color: var(--l-very-light-grayish-blue);
   color: var(--l-very-dark-grayish-blue);
 }
 
@@ -106,8 +109,16 @@ input{
   margin-inline: auto;
 }
 
+.grid{
+  display: grid;
+}
+
 .flex{
   display: flex;
+}
+
+.gap-m{
+  gap: 1.2rem;
 }
 
 .align-center{
@@ -118,8 +129,18 @@ input{
   justify-content: space-between;
 }
 
+.pad-m{
+  padding-inline: 0.5rem;
+  padding-block: 0.8rem;
+}
+
 .pad-inline-m{
   padding-inline: 0.8rem;
+}
+
+.completed{
+  text-decoration: line-through;
+  color: var(--d-dark-grayish-blue);
 }
 
 @media screen and (min-width: 700px) {
