@@ -8,8 +8,13 @@ export default function TextInput({add}){
     function handleSubmit(event){
         const input = inputRef.current;
         if(event.keyCode=="13" && input.value){
-           add(input.value);
-           input.value = null;
+            const id = crypto.randomUUID();
+            add({
+                id,
+                text: input.value,
+                completed: false,
+            });
+            input.value = null;
         }
     }
 

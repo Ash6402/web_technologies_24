@@ -1,31 +1,34 @@
 import { useRef } from "react";
 
-export default function Footer(){
+export default function Footer({setFilter}){
     const buttonRef = useRef(null); 
 
-    function handleClick(event){
-        buttonRef.current?.classList.remove('active');
-        buttonRef.current = event.target;
-        buttonRef.current.classList.add('active'); 
+    function filter(_filter, e){
+        if(!e) return;
+        buttonRef.current.classList.remove('active');
+        buttonRef.current = e.target;
+        buttonRef.current.classList.add('active');
+        setFilter(_filter);
     }
 
     return (
         <>
-            <footer className="wrapper flex justify-center">
+            <footer className="wrapper flex justify-center pad-m">
                 <button 
-                    onClick={handleClick}
-                    className="btn-color">
+                    ref={buttonRef}
+                    onClick={filter.bind(null, "all")}
+                    className="btn-color active">
                     All
                 </button>
                 <button
-                    onClick={handleClick}
+                    onClick={filter.bind(null, 'active')}
                     className="btn-color">
-                        Active
+                    Active
                 </button>
                 <button
-                    onClick={handleClick}
+                    onClick={filter.bind(null, 'completed')}
                     className="btn-color">
-                        Completed
+                    Completed
                 </button>
             </footer>
         </>
