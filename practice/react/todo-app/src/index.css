@@ -67,6 +67,7 @@ ul{
 }
 
 button{
+  font: inherit;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -117,8 +118,16 @@ input{
   display: flex;
 }
 
+.gap-sm{
+  gap: 0.6rem;
+}
+
 .gap-m{
   gap: 1.2rem;
+}
+
+.justify-center{
+  justify-content: center;
 }
 
 .align-center{
@@ -127,6 +136,14 @@ input{
 
 .space-between{
   justify-content: space-between;
+}
+
+.btn-color{
+  color: var(--d-dark-grayish-blue);
+}
+
+.active{
+  color: var(--primary-background);
 }
 
 .pad-m{
