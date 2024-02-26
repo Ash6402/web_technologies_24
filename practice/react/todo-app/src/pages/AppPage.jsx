@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 import Footer from "../components/Footer";
 import List from "../components/List";
 import TextInput from "../components/TextInput";
 import Header from "../components/header";
 import './AppPage.css'
+
+export const TodosContext = createContext(null);
 
 export default function AppPage(){
     const [todos, setTodos] = useState([]);
@@ -25,7 +27,9 @@ export default function AppPage(){
             <div className="container main grid gap-m">
                 <Header/>
                 <TextInput add={addTodo} />
-                <List todos={todos} filter={filter} />
+                <TodosContext.Provider value={{todos, setTodos}}>
+                    <List todos={todos} filter={filter} />
+                </TodosContext.Provider>
                 <Footer setFilter={handleFilter} />
             </div>
         </>
