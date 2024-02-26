@@ -92,6 +92,14 @@ input{
   color: var(--l-very-dark-grayish-blue);
 }
 
+.color-gray{
+  color: var(--l-very-dark-grayish-blue);
+}
+
+.light .color-gray{
+  color: var(--l-dark-grayish-blue);
+}
+
 @media  screen and (min-width: 700px) {
   .background-image{
     background-image: url(./assets/images/bg-desktop-dark.jpg);
@@ -108,6 +116,11 @@ input{
   padding-inline: 1rem;
   max-width: 600px;
   margin-inline: auto;
+}
+
+
+.text-center{
+  text-align: center;
 }
 
 .grid{
