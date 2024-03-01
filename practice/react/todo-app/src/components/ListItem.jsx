@@ -1,23 +1,20 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Checkbox from "./CheckBox";
 import crossIcon from '../assets/images/icon-cross.svg';
 import { TodosContext } from "../pages/AppPage";
 
 export default function ListItem({todo}){
-    const [completed, setCompleted] = useState(todo.completed);
     const {todos, setTodos} = useContext(TodosContext);
 
     function handleCompletion(){
-        setCompleted(!completed);
-
-        setTodos[
+        setTodos(
             [...todos].map((_todo) => {
                 if(_todo.id == todo.id){
                     todo.completed = !todo.completed;
                 }
                 return todo;
             })
-        ]
+        )
     }
 
     function handleDelete(){

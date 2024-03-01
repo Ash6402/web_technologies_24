@@ -1,11 +1,12 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import List from "../components/List";
 import TextInput from "../components/TextInput";
 import Header from "../components/header";
-import './AppPage.css'
+import './AppPage.css';
 
 export const TodosContext = createContext(null);
+const apiUrl = 'http://localhost:3000';
 
 export default function AppPage(){
     const [todos, setTodos] = useState([]);
@@ -16,6 +17,16 @@ export default function AppPage(){
             [...todos, todo]
         )
     }
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            console.log(data);
+        } 
+
+        fetchData();
+    }, []);
 
     function handleFilter(_filter){
         setFilter(_filter);
