@@ -1,8 +1,10 @@
 import  express  from "express";
 import cors from 'cors';
 import mongoose from 'mongoose';
+import { getAllTodos, addTodo, delelteTodo } from "./controllers/todo-controller.js";
 
 const app = express();
+
 mongoose.connect("mongodb://localhost/todoDB")
 .then(() => {
     console.log("Connected to MongoDB!")
@@ -12,11 +14,14 @@ mongoose.connect("mongodb://localhost/todoDB")
 })
 
 app.use(cors());
+app.use(express.json());
 
 app.listen(3000, (req, res) => {
     console.log("Server Initialized!");
 })
 
-app.get("/", (req, res) => {
-    res.json({text: "Hello Client!"})
-})
+app.get("/", getAllTodos);
+
+app.post("/", addTodo);
+
+app.delete("/:id", delelteTodo);

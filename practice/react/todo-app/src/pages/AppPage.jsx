@@ -4,28 +4,30 @@ import List from "../components/List";
 import TextInput from "../components/TextInput";
 import Header from "../components/header";
 import './AppPage.css';
+import '../services/http.service';
+import { default as httpService } from "../services/http.service";
 
 export const TodosContext = createContext(null);
-const apiUrl = 'http://localhost:3000';
 
 export default function AppPage(){
     const [todos, setTodos] = useState([]);
     const [filter, setFilter] = useState('all');
 
     function addTodo(todo){
-        setTodos(
-            [...todos, todo]
-        )
+        httpService.add(todo).then(({_id}) => {
+            console.log({_id, ...todo})
+            setTodos(
+                [...todos, {_id, ...todo}]
+            )
+        })
     }
 
     useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch(apiUrl);
-            const data = await response.json();
-            console.log(data);
-        } 
-
-        fetchData();
+        (async () => {
+            const _todos = await httpService.fetch();
+            console.log(_todos); 
+            setTodos([..._todos])
+        })()
     }, []);
 
     function handleFilter(_filter){

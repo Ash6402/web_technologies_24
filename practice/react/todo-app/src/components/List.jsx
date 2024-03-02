@@ -25,7 +25,7 @@ export default function List({todos, filter}){
                 { 
                     filteredTodos.length > 0 ? 
                     filteredTodos.map(todo => 
-                        <ListItem key={todo.id} todo={todo} />
+                        <ListItem key={todo._id} todo={todo} />
                     ) : 
                     <div className="wrapper pad-m text-center">
                         <p className="color-gray">List is empty!</p>

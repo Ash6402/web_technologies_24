@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Checkbox from "./CheckBox";
 import crossIcon from '../assets/images/icon-cross.svg';
 import { TodosContext } from "../pages/AppPage";
+import { default as httpService } from "../services/http.service";
 
 export default function ListItem({todo}){
     const {todos, setTodos} = useContext(TodosContext);
@@ -9,7 +10,7 @@ export default function ListItem({todo}){
     function handleCompletion(){
         setTodos(
             [...todos].map((_todo) => {
-                if(_todo.id == todo.id){
+                if(_todo._id == todo._id){
                     todo.completed = !todo.completed;
                 }
                 return todo;
@@ -18,9 +19,12 @@ export default function ListItem({todo}){
     }
 
     function handleDelete(){
-        setTodos(
-            [...todos].filter((_todo) => _todo.id !== todo.id)
-        ) 
+        httpService.delete(todo._id).then(() => {
+            setTodos(
+                [...todos].filter((_todo) => _todo._id !== todo._id)
+            ) 
+        })
+
     }
 
     return (

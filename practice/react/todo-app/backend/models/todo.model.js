@@ -4,7 +4,12 @@ const todoSchema = new Schema({
     text: {
         type: String,
         required: true,
+    },
+    completed: {
+        type: Boolean,
+        required: true,
     }
 })
 
-export default Todo = model("todo", todoSchema);
+const Todo = model("todo", todoSchema);
+export default Todo;
