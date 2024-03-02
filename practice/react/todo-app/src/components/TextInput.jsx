@@ -8,9 +8,10 @@ export default function TextInput({add}){
     function handleSubmit(event){
         const input = inputRef.current;
         if(event.keyCode=="13" && input.value){
-            const id = crypto.randomUUID();
+            // no id generation as it will be created by mongoDB in the backend
+            // const id = crypto.randomUUID();
             add({
-                id,
+                // id,
                 text: input.value,
                 completed: false,
             });
