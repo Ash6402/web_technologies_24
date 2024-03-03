@@ -1,11 +1,11 @@
 const apiUrl = 'http://localhost:3000';
 
-async function fetchTodos (){
+export async function http_fetchTodos (){
     const response = await fetch(apiUrl);
     return await response.json();
 }
 
-async function addTodo(todo){
+export async function http_addTodo(todo){
     const response = await fetch(`${apiUrl}`, {
         method: "POST",
         headers: {
@@ -17,7 +17,7 @@ async function addTodo(todo){
     return response.json();
 }
 
-async function deleteTodo(id){
+export async function http_deleteTodo(id){
     const response = await fetch(`${apiUrl}/${id}`, {
         method: "DELETE",
     })
@@ -25,8 +25,14 @@ async function deleteTodo(id){
     return response.json();
 }
 
-export default {
-    fetch: fetchTodos,
-    add: addTodo,
-    delete: deleteTodo,
+export async function http_updateTodo(todo){
+    const response = await fetch(`${apiUrl}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(todo),
+    })
+
+    return response.json();
 }

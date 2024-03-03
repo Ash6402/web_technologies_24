@@ -6,7 +6,7 @@ import { useState } from 'react';
 export default function Header(){
     let [dark, setDark] = useState(true);
     function toggleMode(){
-        document.body.classList.toggle("light"); 
+        document.body.classList.toggle("light");
         setDark(!dark);
     }
 

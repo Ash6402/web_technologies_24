@@ -5,7 +5,7 @@ import TextInput from "../components/TextInput";
 import Header from "../components/header";
 import './AppPage.css';
 import '../services/http.service';
-import { default as httpService } from "../services/http.service";
+import { http_addTodo, http_fetchTodos } from "../services/http.service";
 
 export const TodosContext = createContext(null);
 
@@ -14,8 +14,7 @@ export default function AppPage(){
     const [filter, setFilter] = useState('all');
 
     function addTodo(todo){
-        httpService.add(todo).then(({_id}) => {
-            console.log({_id, ...todo})
+        http_addTodo(todo).then(({_id}) => {
             setTodos(
                 [...todos, {_id, ...todo}]
             )
@@ -24,8 +23,7 @@ export default function AppPage(){
 
     useEffect(() => {
         (async () => {
-            const _todos = await httpService.fetch();
-            console.log(_todos); 
+            const _todos = await http_fetchTodos();
             setTodos([..._todos])
         })()
     }, []);

@@ -1,7 +1,7 @@
 import  express  from "express";
 import cors from 'cors';
 import mongoose from 'mongoose';
-import { getAllTodos, addTodo, delelteTodo } from "./controllers/todo-controller.js";
+import { getAllTodos, addTodo, delelteTodo, updateTodo } from "./controllers/todo-controller.js";
 
 const app = express();
 
@@ -25,3 +25,5 @@ app.get("/", getAllTodos);
 app.post("/", addTodo);
 
 app.delete("/:id", delelteTodo);
+
+app.put("/", updateTodo);

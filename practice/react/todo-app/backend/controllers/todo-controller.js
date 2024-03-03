@@ -19,3 +19,13 @@ export async function delelteTodo(req, res){
       console.log(e);
    }
 }
+
+export async function updateTodo(req, res){
+   try{
+      const todo = req.body;
+      await Todo.updateOne({_id: todo._id}, todo).exec();
+      res.status(200).json({successful: true})
+   }catch(e){
+      console.log(e);
+   }
+}
