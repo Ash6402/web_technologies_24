@@ -12,6 +12,7 @@ export const TodosContext = createContext(null);
 export default function AppPage(){
     const [todos, setTodos] = useState([]);
     const [filter, setFilter] = useState('all');
+    const [active, setActive] = useState(0);
 
     function addTodo(todo){
         http_addTodo(todo).then(({_id}) => {
@@ -28,6 +29,17 @@ export default function AppPage(){
         })()
     }, []);
 
+    useEffect(() => {
+        setActive(() => {
+            let actives = 0;
+            todos.forEach(todo => {
+                if(!todo.completed)
+                    actives += 1;
+            })
+            return actives;
+        })
+    }, [todos])
+
     function handleFilter(_filter){
         setFilter(_filter);
     }
@@ -41,7 +53,7 @@ export default function AppPage(){
                 <TodosContext.Provider value={{todos, setTodos}}>
                     <List todos={todos} filter={filter} />
                 </TodosContext.Provider>
-                <Footer setFilter={handleFilter} />
+                <Footer actives={active} setFilter={handleFilter} />
             </div>
         </>
     )

@@ -151,6 +151,10 @@ input{
   justify-content: space-between;
 }
 
+.basis-100{
+  flex-basis: 100%;
+}
+
 .btn-color{
   color: var(--d-dark-grayish-blue);
 }
