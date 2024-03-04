@@ -13,7 +13,7 @@ export default function Footer({actives, setFilter}){
 
     return (
         <>
-            <footer className="wrapper flex space-between pad-m">
+            <footer className="flex space-between pad-m">
                 <p className="basis-100">{actives} item{actives == 1 ? "": "s"} left</p>
                 <div className="flex basis-100 justify-center gap-sm">
                     <button

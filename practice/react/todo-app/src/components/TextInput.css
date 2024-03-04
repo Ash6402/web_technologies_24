@@ -1,3 +1,7 @@
+.text-input{
+    margin-bottom: 2rem;
+}
+
 .wrapper .input{
     background: transparent;
     flex: 1;

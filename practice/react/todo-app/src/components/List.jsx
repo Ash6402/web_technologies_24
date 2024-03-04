@@ -15,19 +15,19 @@ export default function List({todos, filter}){
 
     if(todos.length == 0)
         return (
-            <div className="wrapper pad-m text-center">
+            <div className="pad-m text-center">
                 <p className="color-gray">No work to do!</p>
             </div>
         )
     else
         return (
-            <ul className="wrapper list">
+            <ul className="list">
                 { 
                     filteredTodos.length > 0 ? 
                     filteredTodos.map(todo => 
                         <ListItem key={todo._id} todo={todo} />
                     ) : 
-                    <div className="wrapper pad-m text-center">
+                    <div className="pad-m text-center">
                         <p className="color-gray">List is empty!</p>
                     </div>
                 }

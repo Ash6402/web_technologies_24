@@ -47,13 +47,15 @@ export default function AppPage(){
     return (
         <>
             <div className="background-image"></div>
-            <div className="container main grid gap-m">
+            <div className="container main grid">
                 <Header/>
                 <TextInput add={addTodo} />
-                <TodosContext.Provider value={{todos, setTodos}}>
-                    <List todos={todos} filter={filter} />
-                </TodosContext.Provider>
-                <Footer actives={active} setFilter={handleFilter} />
+                <div className="wrapper">
+                    <TodosContext.Provider value={{todos, setTodos}}>
+                        <List todos={todos} filter={filter} />
+                    </TodosContext.Provider>
+                    <Footer actives={active} setFilter={handleFilter} />
+                </div>
             </div>
         </>
     )

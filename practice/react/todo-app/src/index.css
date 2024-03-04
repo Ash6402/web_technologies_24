@@ -168,6 +168,10 @@ input{
   padding-block: 0.8rem;
 }
 
+.margin-b-2{
+  margin-bottom: 2rem;
+}
+
 .pad-inline-m{
   padding-inline: 0.8rem;
 }

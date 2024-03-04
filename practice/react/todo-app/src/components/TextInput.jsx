@@ -17,7 +17,7 @@ export default function TextInput({add}){
     }
 
     return (
-        <div className='wrapper flex align-center pad-m'>
+        <div className='text-input wrapper flex align-center pad-m'>
             <Checkbox disabled={true} />
             <input 
                 ref={inputRef}
