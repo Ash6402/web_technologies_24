@@ -5,7 +5,7 @@ import TextInput from "../components/TextInput";
 import Header from "../components/header";
 import './AppPage.css';
 import '../services/http.service';
-import { http_addTodo, http_fetchTodos } from "../services/http.service";
+import { http_addTodo, http_fetchTodos, http_clearCompleted } from "../services/http.service";
 
 export const TodosContext = createContext(null);
 
@@ -43,6 +43,14 @@ export default function AppPage(){
     function handleFilter(_filter){
         setFilter(_filter);
     }
+
+    function clearCompleted(){
+        http_clearCompleted().then(() => {
+            setTodos(() => 
+                todos.filter((_todo) => _todo.completed !== true)
+            )
+        })
+    }
     
     return (
         <>
@@ -54,7 +62,7 @@ export default function AppPage(){
                     <TodosContext.Provider value={{todos, setTodos}}>
                         <List todos={todos} filter={filter} />
                     </TodosContext.Provider>
-                    <Footer actives={active} setFilter={handleFilter} />
+                    <Footer actives={active} setFilter={handleFilter} clearCompleted={clearCompleted} />
                 </div>
             </div>
         </>

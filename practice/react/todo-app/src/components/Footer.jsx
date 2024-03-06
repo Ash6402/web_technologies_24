@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-export default function Footer({actives, setFilter}){
+export default function Footer({actives, setFilter, clearCompleted }){
     const buttonRef = useRef(null); 
 
     function filter(_filter, e){
@@ -33,7 +33,10 @@ export default function Footer({actives, setFilter}){
                         Completed
                     </button>
                 </div>
-                <button style={{textAlign: "right"}} className="basis-100 btn-color">
+                <button 
+                    onClick={clearCompleted}
+                    style={{textAlign: "right"}}
+                    className="basis-100 btn-color">
                     clear completed
                 </button>
             </footer>

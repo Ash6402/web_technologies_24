@@ -29,3 +29,12 @@ export async function updateTodo(req, res){
       console.log(e);
    }
 }
+
+export async function clearCompleted(req, res){
+   try{
+      await Todo.deleteMany({completed: true}).exec();
+      res.status(200).json({successful: true});
+   }catch(e){
+      console.log(e);
+   }
+}

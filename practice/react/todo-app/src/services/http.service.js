@@ -36,3 +36,11 @@ export async function http_updateTodo(todo){
 
     return response.json();
 }
+
+export async function http_clearCompleted(){
+    const response = await fetch(`${apiUrl}/todo/clear`, {
+        method: "DELETE",
+    })
+
+    return response.json();
+}
