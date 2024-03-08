@@ -1,0 +1,5 @@
+.hero-container{
+    background: url("./assets/polygonal19.jpg") no-repeat;
+    background-size: cover;
+    height: 40vh;
+}
