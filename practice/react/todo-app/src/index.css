@@ -118,6 +118,10 @@ input{
   margin-inline: auto;
 }
 
+.h-100{
+  height: 100vh;
+}
+
 
 .text-center{
   text-align: center;
@@ -168,6 +172,10 @@ input{
   padding-block: 0.8rem;
 }
 
+.pad-l{
+  padding: 1.5rem;
+}
+
 .margin-b-2{
   margin-bottom: 2rem;
 }
@@ -179,6 +187,37 @@ input{
 .completed{
   text-decoration: line-through;
   color: var(--d-dark-grayish-blue);
+}
+
+.form-field{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+}
+
+.form-field input{
+  padding: 0.5rem;
+  width: 70vw;
+  max-width: 15rem;
+  border-radius: 5px;
+  background-color: var(--d-very-dark-grayish-blue);
+}
+
+.error{
+  outline: 1px solid red;
+}
+
+.err-msg{
+  color: red;
+  font-size: 70%;
+  height: 0.8rem;
+}
+
+.btn-primary{
+  background-color: var(--d-dark-grayish-blue);
+  border-radius: 5px;
+  padding: 0.5rem 0.8rem;
+  justify-self: center;
 }
 
 @media screen and (min-width: 700px) {
