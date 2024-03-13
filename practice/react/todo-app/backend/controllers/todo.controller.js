@@ -11,7 +11,7 @@ export async function addTodo(req, res){
    res.status(200).json({_id: _todo._id});
 }
 
-export async function delelteTodo(req, res){
+export async function deleteTodo(req, res){
    try{
       await Todo.deleteOne({_id: req.params.id}).exec();
       res.status(200).json({successful: true});

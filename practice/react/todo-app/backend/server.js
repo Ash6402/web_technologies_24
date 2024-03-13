@@ -1,7 +1,7 @@
 import  express  from "express";
 import cors from 'cors';
 import mongoose from 'mongoose';
-import { getAllTodos, addTodo, delelteTodo, updateTodo, clearCompleted } from "./controllers/todo.controller.js";
+import { getAllTodos, addTodo, deleteTodo, updateTodo, clearCompleted } from "./controllers/todo.controller.js";
 import authRouter from "./router/auth-router.js";
 
 const app = express();
@@ -29,6 +29,6 @@ app.put("/", updateTodo);
 
 app.delete("/todo/clear", clearCompleted);
 
-app.delete("/:id", delelteTodo);
+app.delete("/:id",deleteTodo);
 
 app.use("/auth", authRouter);
