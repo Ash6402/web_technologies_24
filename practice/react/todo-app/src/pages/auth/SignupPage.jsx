@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { confirmPassErrors, emailErrors, passwordErrors, usernameErrors } from "../../services/error-handling.service";
+import { signUp } from "../../services/http-auth.service";
 
 export default function SignUp(){
     const btnRef = useRef();
@@ -53,8 +54,8 @@ export default function SignUp(){
             email: emailRef.current.value,
             password: passwordRef.current.value,
         }
-
-        console.log(formData);
+        
+        signUp(formData).then(() => console.log("req successful!"));       
     }
 
     return (
@@ -101,7 +102,11 @@ export default function SignUp(){
                     />
                     <span className="err-msg"></span>
                 </div>
-                <button ref={btnRef} type="button" onClick={submitForm} className="btn-primary">Signup</button>
+                <button ref={btnRef} type="button" 
+                    onClick={submitForm} 
+                    className="btn-primary">
+                    Signup
+                </button>
             </form>
         </div>
     )
