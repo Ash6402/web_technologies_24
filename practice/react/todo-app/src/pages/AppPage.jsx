@@ -24,8 +24,9 @@ export default function AppPage(){
 
     useEffect(() => {
         (async () => {
-            const _todos = await http_fetchTodos();
-            setTodos([..._todos])
+            const todos_res = await http_fetchTodos();
+            if(todos_res.status < 300)
+                setTodos([... await todos_res.json()])
         })()
     }, []);
 

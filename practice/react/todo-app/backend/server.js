@@ -1,8 +1,9 @@
 import  express  from "express";
 import cors from 'cors';
 import mongoose from 'mongoose';
-import { getAllTodos, addTodo, deleteTodo, updateTodo, clearCompleted } from "./controllers/todo.controller.js";
-import authRouter from "./router/auth-router.js";
+import cookieParser from 'cookie-parser';
+import authRouter from "./router/auth.router.js";
+import todoRouter from "./router/todo.router.js";
 
 const app = express();
 
@@ -14,21 +15,17 @@ mongoose.connect("mongodb://localhost/todoDB")
     console.log(`Unable to connect to MongoDB.\nError: ${e}`)
 })
 
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true,
+}));
+
 app.use(express.json());
+app.use(cookieParser());
 
 app.listen(3000, (req, res) => {
     console.log("Server Initialized!");
 })
 
-app.get("/", getAllTodos);
-
-app.post("/", addTodo);
-
-app.put("/", updateTodo);
-
-app.delete("/todo/clear", clearCompleted);
-
-app.delete("/:id",deleteTodo);
-
 app.use("/auth", authRouter);
+app.use("/todo", todoRouter);

@@ -20,6 +20,11 @@ const userSchema = new Schema({
     todos: {
         type: [todoSchema],
     },
+
+    refreshToken: {
+        type: String,
+        default: null,
+    }
 })
 
 const User = model("user", userSchema);

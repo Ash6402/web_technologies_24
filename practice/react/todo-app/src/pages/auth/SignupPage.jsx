@@ -49,14 +49,19 @@ export default function SignUpPage(){
         setInvalid(() => checkForm());
     }
 
-    function submitForm(){
+    async function submitForm(){
         const formData = {
             username: usernameRef.current.value,
             email: emailRef.current.value,
             password: passwordRef.current.value,
         }
         
-        signUp(formData).then(() => console.log("req successful!"));       
+        const res = await signUp(formData);
+        const json = await res.json(); 
+        if(res.status == 409){
+            usernameRef.current.classList.add('error')
+            usernameRef.current.nextElementSibling.innerText = json.error;
+        }
     }
 
     return (

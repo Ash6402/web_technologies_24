@@ -23,6 +23,10 @@ const router = createBrowserRouter([
         element: <SignUpPage />
       }
     ]
+  },
+  {
+    path: "/home",
+    element: <AppPage />
   }
 ]);
 
