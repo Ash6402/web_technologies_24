@@ -49,6 +49,17 @@ ul{
   list-style-type: none;
 }
 
+a{
+  text-decoration: none;
+  text-align: center;
+  font-size: 80%;
+  color: var(--d-light-grayish-blue);
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
 .background-image{
   z-index: -1;
   position: absolute;

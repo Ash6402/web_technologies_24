@@ -1,19 +1,28 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import AppPage from './pages/AppPage'
-import SignUp from './pages/auth/SignupPage'
+import SignUpPage from './pages/auth/SignupPage'
+import LoginPage from './pages/auth/LoginPage'
 import './index.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <AppPage />,
+    element: <Navigate to='/auth/login' replace/>,
   }, 
   {
-    path: '/auth/signup',
-    element: <SignUp />
-
+    path: '/auth',
+    children: [
+      {
+        path: 'login',
+        element: <LoginPage />
+      },
+      {
+        path: 'signup',      
+        element: <SignUpPage />
+      }
+    ]
   }
 ]);
 

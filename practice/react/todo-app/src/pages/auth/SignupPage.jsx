@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { confirmPassErrors, emailErrors, passwordErrors, usernameErrors } from "../../services/error-handling.service";
 import { signUp } from "../../services/http-auth.service";
+import { Link } from "react-router-dom";
 
-export default function SignUp(){
+export default function SignUpPage(){
     const btnRef = useRef();
     const emailRef = useRef();
     const usernameRef = useRef();
@@ -61,7 +62,7 @@ export default function SignUp(){
     return (
         <div className="h-100 grid justify-center align-center">
             <form className="wrapper pad-l grid">
-                <h1 className="text-center">SignUp</h1>
+                <h1 className="text-center">Sign up</h1>
                 <div className="form-field">
                     <label htmlFor="email">Email</label>
                     <input type="email" name="email" id="email" 
@@ -107,6 +108,7 @@ export default function SignUp(){
                     className="btn-primary">
                     Signup
                 </button>
+                <Link to="/auth/login">Already a user? LogIn in here!</Link>
             </form>
         </div>
     )
