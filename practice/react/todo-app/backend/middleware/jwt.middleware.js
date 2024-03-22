@@ -18,6 +18,7 @@ export function authenticateToken(req, res, next){
          res.sendStatus(403)
          return
       }
+      req.body.id = user.id;
       next()
    })
 }

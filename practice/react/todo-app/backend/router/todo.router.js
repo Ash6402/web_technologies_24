@@ -6,7 +6,7 @@ const todoRouter = express.Router();
 
 todoRouter.use(authenticateToken);
 
-todoRouter.get("/", getAllTodos);
+todoRouter.post("/all", getAllTodos);
 
 todoRouter.post("/", addTodo);
 

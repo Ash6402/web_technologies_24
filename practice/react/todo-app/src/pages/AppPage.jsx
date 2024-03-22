@@ -25,8 +25,10 @@ export default function AppPage(){
     useEffect(() => {
         (async () => {
             const todos_res = await http_fetchTodos();
-            if(todos_res.status < 300)
+            if(todos_res.status < 300){
+                console.log("oui");
                 setTodos([... await todos_res.json()])
+            }
         })()
     }, []);
 

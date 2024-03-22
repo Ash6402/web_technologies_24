@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import { confirmPassErrors, emailErrors, passwordErrors, usernameErrors } from "../../services/error-handling.service";
 import { signUp } from "../../services/http-auth.service";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SignUpPage(){
     const btnRef = useRef();
     const emailRef = useRef();
     const usernameRef = useRef();
     const passwordRef = useRef();
-    const confirmPassRef = useRef(); 
+    const confirmPassRef = useRef();
+    
+    const navigate = useNavigate();
 
     const [invalid, setInvalid] = useState(true);
 
@@ -61,6 +63,8 @@ export default function SignUpPage(){
         if(res.status == 409){
             usernameRef.current.classList.add('error')
             usernameRef.current.nextElementSibling.innerText = json.error;
+        }else if(res.status === 201){
+            navigate("/auth/login");
         }
     }
 

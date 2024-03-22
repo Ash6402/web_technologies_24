@@ -24,8 +24,10 @@ export async function login(formData){
 
     const json = await response.json()
     localStorage.setItem("id", json.id)
-
-    return response;
+    return {
+        status: response.status,
+        json
+    }
 }
 
 export async function refresh(){

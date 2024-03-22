@@ -3,12 +3,16 @@ import { refresh } from "./http-auth.service";
 const apiUrl = 'http://localhost:3000/todo';
 
 export async function http_fetchTodos(){
-    const response = await fetch(apiUrl, {
+    const id = localStorage.getItem("id");
+    const response = await fetch(`${apiUrl}/all`, {
+        method: "POST",
         credentials: 'include',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({id}),
     });
-    await interceptor(response, http_fetchTodos)
-    console.log("fetch_todos called")
-    return response;
+    return await interceptor(response, http_fetchTodos);
 }
 
 export async function http_addTodo(todo){
@@ -17,11 +21,10 @@ export async function http_addTodo(todo){
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(todo),
+        body: JSON.stringify({todo}),
         credentials: 'include',
     })
-    await interceptor(response, http_addTodo, todo)
-    return response.status < 300 && response.json();
+    return await interceptor(response, http_fetchTodos).json();
 }
 
 export async function http_deleteTodo(id){
@@ -29,8 +32,7 @@ export async function http_deleteTodo(id){
         method: "DELETE",
         credentials: 'include',
     })
-    await interceptor(response, http_deleteTodo, id)
-    return response.status < 300 && response.json();
+    return await interceptor(response, http_fetchTodos);
 }
 
 export async function http_updateTodo(todo){
@@ -39,11 +41,10 @@ export async function http_updateTodo(todo){
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(todo),
+        body: JSON.stringify({todo}),
         credentials: 'include',
     })
-    await interceptor(response, http_updateTodo, todo)
-    return response.status < 300 && response.json();
+    return await interceptor(response, http_fetchTodos);
 }
 
 export async function http_clearCompleted(){
@@ -51,13 +52,13 @@ export async function http_clearCompleted(){
         method: "DELETE",
         credentials: 'include',
     })
-    await interceptor(response, http_clearCompleted)
-    return response.status < 300 && response.json();
+    return await interceptor(response, http_fetchTodos);
 }
 
 async function interceptor(res, fn, arg){
     if(res.status === 403){
         await refresh();
-        fn(arg)
+        return fn(arg)
     }
+    return res;
 }

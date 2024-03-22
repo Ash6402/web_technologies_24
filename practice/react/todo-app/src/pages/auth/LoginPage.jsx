@@ -19,11 +19,10 @@ export default function LoginPage(){
         }
 
         const res = await login(formData)
-        const json = res.status !== 202 && await res.json()
         if(res.status === 404)
-            setErrors({username: json.error, password:null})
+            setErrors({username: res.json.error, password:null})
         if(res.status === 401)
-            setErrors({username: null, password: json.error})
+            setErrors({username: null, password: res.json.error})
         if(res.status === 202){
             setErrors({username: null, password: null})
             navigate("/home");
