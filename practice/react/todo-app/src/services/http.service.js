@@ -24,7 +24,7 @@ export async function http_addTodo(todo){
         body: JSON.stringify({todo}),
         credentials: 'include',
     })
-    return await interceptor(response, http_fetchTodos).json();
+    return await interceptor(response, http_addTodo, todo);
 }
 
 export async function http_deleteTodo(id){
@@ -32,7 +32,7 @@ export async function http_deleteTodo(id){
         method: "DELETE",
         credentials: 'include',
     })
-    return await interceptor(response, http_fetchTodos);
+    return await interceptor(response, http_deleteTodo, id);
 }
 
 export async function http_updateTodo(todo){
@@ -44,7 +44,7 @@ export async function http_updateTodo(todo){
         body: JSON.stringify({todo}),
         credentials: 'include',
     })
-    return await interceptor(response, http_fetchTodos);
+    return await interceptor(response, http_updateTodo, todo);
 }
 
 export async function http_clearCompleted(){
@@ -52,7 +52,7 @@ export async function http_clearCompleted(){
         method: "DELETE",
         credentials: 'include',
     })
-    return await interceptor(response, http_fetchTodos);
+    return await interceptor(response, http_clearCompleted);
 }
 
 async function interceptor(res, fn, arg){

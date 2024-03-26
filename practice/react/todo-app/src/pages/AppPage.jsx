@@ -14,21 +14,22 @@ export default function AppPage(){
     const [filter, setFilter] = useState('all');
     const [active, setActive] = useState(0);
 
-    function addTodo(todo){
-        http_addTodo(todo).then(({_id}) => {
-            setTodos(
-                [...todos, {_id, ...todo}]
-            )
-        })
+    async function addTodo(todo){
+        const res = await http_addTodo(todo);
+        if(res.status != 200) return;
+        const {_id} = await res.json();
+        console.log(_id);
+        setTodos(
+            [...todos, {_id, ...todo}]
+        )
     }
 
     useEffect(() => {
         (async () => {
             const todos_res = await http_fetchTodos();
-            if(todos_res.status < 300){
-                console.log("oui");
-                setTodos([... await todos_res.json()])
-            }
+            if(todos_res.status >= 300) return;
+            console.log("oui");
+            setTodos([... await todos_res.json()])
         })()
     }, []);
 
