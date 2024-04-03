@@ -1,0 +1,155 @@
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* outline: 1px solid red; */
+}
+
+button{
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    font-weight: 900;
+    font-size: 105%;
+    cursor: pointer;
+}
+
+a{
+    color: initial;
+    text-decoration: none;
+    font: inherit;
+    font-size: 110%;
+}   
+
+ul{
+    list-style-type: none;
+}
+
+img{
+    max-width: 100%;
+    display: block;
+}
+
+.container{
+    max-width: 1440px;
+    margin-inline: auto;
+}
+
+.header{
+    padding: 0.6rem 1rem;
+    background-color: #222;
+    color: #ddd;
+}
+
+.btn-primary{
+    border: 1px solid #ddd;
+}
+
+.btn-secondary{
+    background-color: gold;
+    color: #222;
+}
+
+.main-heading{
+    font-size: 5rem;
+}
+
+.secondary-heading{
+    font-size: 2.5rem;
+}
+
+.main-grid{
+    grid-template-columns: 50% 25% 25%;
+}
+
+.border-b{
+    border-bottom: 1px solid #ccc;
+}
+
+.border-h{
+    border-inline: 1px solid #ccc;
+}
+
+/* UTILITY CLASSES */
+
+.pad-h-m{
+    padding-inline: 0.5rem;
+}
+
+.serif{
+    font-family: serif;
+}
+
+.sans-serif{
+    font-family: sans-serif;
+}
+
+.flex{
+    display: flex;
+}
+
+.grid{
+    display: grid;
+}
+
+.pad-v-m{
+    padding: 0.8rem;
+}
+
+.gap-m{
+    gap: 0.5rem;
+}
+
+.gap-l{
+    gap: 1.5rem;
+}
+
+.space-between{
+    justify-content: space-between;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.bold{
+    font-weight: 700;
+}
+
+.bold-m{
+    font-weight: 600;
+}
+
+.font-m{
+    font-size: 110%;
+}
+
+@media screen and (hover:hover) {
+    nav li:hover{
+        color: #555;
+        cursor: pointer;
+        transition: color 300ms;
+    }
+    
+    a:hover{
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    img:hover{
+        cursor: pointer;
+        opacity: 70%;
+        transition: opacity 200ms;
+    }
+
+}
