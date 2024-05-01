@@ -22,8 +22,8 @@ export async function createUser(req, res){
 
 export async function loginUser(req, res){
    try{
-      const user = await User.findOne({username: req.body.username}).exec();
       // check if any user exists against that username
+      const user = await User.findOne({username: req.body.username}).exec();
       if(!user){
          res.status(404).json({error: "user not found"})
       }else{
