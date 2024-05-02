@@ -1,6 +1,6 @@
 import './header.css'
 import iconLight from '../assets/images/icon-sun.svg';
-import iconDark from '../assets/images/icon-moon.svg'
+import iconDark from '../assets/images/icon-moon.svg';
 import { useState } from 'react';
 
 export default function Header(){

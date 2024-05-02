@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+.header{
+    background-color: var(--color-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo-text{
+    font-family: "dancing script", cursive;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--color-highlight);
+}
+
+.menu-list{
+    position: absolute;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-secondary);
+}
+
+.menu-list a{
+    font-size: 130%;
+    color: var(--color-primary);
+}
+
+@media screen and (min-width: 601px){
+    .menu-list{
+        position: static;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.8rem;
+        background-color: transparent;
+    }
+
+    .menu-list a{
+        color: var(--color-tertiary);
+    }
+}
+
+@media (hover:hover){
+    .menu-list a:hover{
+        color: var(--color-accent);
+    }
+}
